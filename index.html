@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Weather App</title>
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Main css file -->
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="app">
+            <div class="app-container">
+                <div class="container">
+                    <!-- Start Header -->
+                    <header>
+                        <div class="logo">
+                            <img src="./imgs/light-logo.png" />
+                            <h1>
+                                Weather <br />
+                                Field
+                            </h1>
+                        </div>
+                        <div class="theme-icon">
+                            <img src="./imgs/light-theme.png" alt="" />
+                        </div>
+                    </header>
+                    <!-- End Header -->
+                    <!-- Start Search Section -->
+                    <section class="search">
+                        <input
+                            type="text"
+                            id="search-input"
+                            placeholder="Enter the city"
+                        />
+                    </section>
+                    <!-- End Search Section -->
+                    <!-- Start Body Section -->
+                    <section class="body">
+                        <h2 id="degree">15°C</h2>
+                        <span id="city">London</span>
+                        <span id="condition">Condition</span>
+                        <div class="wind-and-humidity">
+                            <div class="humidity-box">
+                                <img
+                                    src="./imgs/light-humidity.png"
+                                    class="icon"
+                                />
+                                <div class="info">
+                                    <span id="humidity">68%</span>
+                                    <span>Humidity</span>
+                                </div>
+                            </div>
+                            <div class="wind-box">
+                                <img src="./imgs/light-wind.png" class="icon" />
+                                <div class="info">
+                                    <span id="wind">2 Km/h</span>
+                                    <span>Wind</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- End Body Section -->
+                </div>
+            </div>
+        </div>
+        <script src="main.js"></script>
+    </body>
+</html>
