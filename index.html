@@ -4,6 +4,11 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Weather App</title>
+        <!-- Icons -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+            rel="stylesheet"
+        />
         <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,8 +32,8 @@
                                 Field
                             </h1>
                         </div>
-                        <div class="theme-icon">
-                            <img src="./imgs/light-theme.png" alt="" />
+                        <div id="theme-icon">
+                            <i class="ri-sun-line"></i>
                         </div>
                     </header>
                     <!-- End Header -->
@@ -39,26 +44,26 @@
                             id="search-input"
                             placeholder="Enter the city"
                         />
+                        <button id="search-btn">
+                            <i class="ri-search-line"></i>
+                        </button>
                     </section>
                     <!-- End Search Section -->
                     <!-- Start Body Section -->
                     <section class="body">
-                        <h2 id="degree">15°C</h2>
+                        <h2 id="temp">15°C</h2>
                         <span id="city">London</span>
                         <span id="condition">Condition</span>
                         <div class="wind-and-humidity">
                             <div class="humidity-box">
-                                <img
-                                    src="./imgs/light-humidity.png"
-                                    class="icon"
-                                />
+                                <i class="ri-water-percent-line icon"></i>
                                 <div class="info">
                                     <span id="humidity">68%</span>
                                     <span>Humidity</span>
                                 </div>
                             </div>
                             <div class="wind-box">
-                                <img src="./imgs/light-wind.png" class="icon" />
+                                <i class="ri-windy-fill icon"></i>
                                 <div class="info">
                                     <span id="wind">2 Km/h</span>
                                     <span>Wind</span>
