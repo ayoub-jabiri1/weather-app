@@ -107,6 +107,14 @@ body {
                 border-radius: var(--border-radius);
                 border: none;
                 outline: none;
+                &::placeholder {
+                    color: var(--text-color);
+                }
+                @media (max-width: 767px) {
+                    & {
+                        width: 200px;
+                    }
+                }
             }
             #search-btn {
                 background-color: var(--secondary-container-color);
@@ -133,10 +141,16 @@ body {
                     width: 90%;
                 }
             }
+            .default-msg {
+                text-align: center;
+                h2 {
+                    animation: up-down 3s linear alternate-reverse infinite;
+                }
+            }
             .icon {
                 width: 30px;
             }
-            h2 {
+            #temp {
                 font-size: 70px;
                 @media (max-width: 767px) {
                     & {
@@ -192,6 +206,19 @@ body {
                     }
                 }
             }
+            #error-msg {
+            }
         }
+    }
+}
+
+/* Start Animations */
+
+@keyframes up-down {
+    from {
+        transform: translateX(10px);
+    }
+    to {
+        transform: translateX(-10px);
     }
 }

@@ -1,11 +1,7 @@
 // 1. <-- Main Selectors -->
 let searchInput = document.getElementById("search-input"),
     searchBtn = document.getElementById("search-btn"),
-    temp = document.getElementById("temp"),
-    city = document.getElementById("city"),
-    condition = document.getElementById("condition"),
-    humidity = document.getElementById("humidity"),
-    wind = document.getElementById("wind"),
+    appBody = document.querySelector(".body"),
     themeBtn = document.getElementById("theme-icon");
 
 // 2. <-- Start Variables -->
@@ -18,18 +14,48 @@ const getData = async (city) => {
     const res = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=25c66ab9631c6269c272a585437cc3ff&units=metric`
     );
+
+    if (!res.ok) {
+        console.log(res);
+
+        appBody.innerHTML = `
+            <div id="error-msg">
+                <h2>City not found!</h2>
+            </div>
+        `;
+
+        return;
+    }
+
     const data = await res.json();
 
-    // Set Data in the page
-    temp.innerHTML = `${data.main.temp}°C`;
-    city.innerHTML = data.name;
-    condition.innerHTML = data.weather[0].description;
-    humidity.innerHTML = data.main.humidity;
-    wind.innerHTML = data.wind.speed;
+    appBody.innerHTML = `
+        <h2 id="temp">${data.main.temp}°C</h2>
+        <span id="city">${data.name}</span>
+        <span id="condition">${data.weather[0].description}</span>
+        <div class="wind-and-humidity">
+            <div class="humidity-box">
+                <i class="ri-water-percent-line icon"></i>
+                <div class="info">
+                    <span id="humidity">${data.main.humidity}%</span>
+                    <span>Humidity</span>
+                </div>
+            </div>
+            <div class="wind-box">
+                <i class="ri-windy-fill icon"></i>
+                <div class="info">
+                    <span id="wind">${data.wind.speed} Km/h</span>
+                    <span>Wind</span>
+                </div>
+            </div>
+        </div>
+
+    `;
 };
 
 const handleTheme = () => {
-    let rootElement = document.documentElement;
+    let rootElement = document.documentElement,
+        logo = document.querySelector(".logo img");
 
     if (theme == "light") {
         rootElement.style.setProperty("--main-container-color", "#d9d9d980");
@@ -38,6 +64,8 @@ const handleTheme = () => {
             "#0000004d"
         );
         rootElement.style.setProperty("--text-color", "#000");
+
+        logo.src = "./imgs/dark-logo.png";
 
         theme = "dark";
     } else {
@@ -48,6 +76,8 @@ const handleTheme = () => {
         );
         rootElement.style.setProperty("--text-color", "#fff");
 
+        logo.src = "./imgs/light-logo.png";
+
         theme = "light";
     }
 };
@@ -57,10 +87,14 @@ const handleTheme = () => {
 searchBtn.addEventListener("click", () => {
     let city = searchInput.value.trim();
 
-    getData(city);
+    if (city != "") {
+        getData(city);
 
-    // Empty the input
-    searchInput.value = "";
+        // Empty the input
+        searchInput.value = "";
+    }
 });
 
 themeBtn.addEventListener("click", handleTheme);
+
+// https://api.unsplash.com/photos/?client_id=_Ah4AchsiC5I3Ld-w0xM9D6ZixG_fW0ud2xmfr19imI
