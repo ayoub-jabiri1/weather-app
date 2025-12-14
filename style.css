@@ -144,7 +144,7 @@ body {
             .default-msg {
                 text-align: center;
                 h2 {
-                    animation: up-down 3s linear alternate-reverse infinite;
+                    animation: left-right 3s linear alternate-reverse infinite;
                 }
             }
             .icon {
@@ -171,7 +171,10 @@ body {
             }
             #condition {
                 display: block;
-                margin-bottom: 10px;
+            }
+            #condition-icon {
+                width: 60px;
+                animation: left-right 3s linear alternate-reverse infinite;
             }
             .wind-and-humidity {
                 display: flex;
@@ -206,15 +209,13 @@ body {
                     }
                 }
             }
-            #error-msg {
-            }
         }
     }
 }
 
 /* Start Animations */
 
-@keyframes up-down {
+@keyframes left-right {
     from {
         transform: translateX(10px);
     }
