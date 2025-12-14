@@ -36,7 +36,7 @@ const getData = async (city) => {
         <h2 id="temp">${data.main.temp}°C</h2>
         <span id="city">${data.name}</span>
         <span id="condition">${data.weather[0].description}</span>
-        <img id="condition-icon" src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">
+        <img id="condition-icon" src="https://openweathermap.org/img/wn/${data.weather[0].icon}.png">
         <div class="wind-and-humidity">
             <div class="humidity-box">
                 <i class="ri-water-percent-line icon"></i>
