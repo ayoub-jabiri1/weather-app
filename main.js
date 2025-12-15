@@ -64,10 +64,17 @@ const handleAppBackground = async (query) => {
 
     const data = await res.json();
 
-    // Set the fetched image as the background image
-    document.getElementById(
-        "app"
-    ).style.backgroundImage = `url("${data.results[0].urls.regular}")`;
+    // Check if there is images
+    if (data.results.length) {
+        // Set the fetched image as the background image
+        document.getElementById(
+            "app"
+        ).style.backgroundImage = `url("${data.results[0].urls.regular}")`;
+    } else {
+        // Set the default imageas the background image
+        document.getElementById("app").style.backgroundImage =
+            "url('./imgs/cover.jpg')";
+    }
 };
 
 const handleTheme = () => {
